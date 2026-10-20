@@ -35,10 +35,25 @@ fi
 
 # Extract only resources used by the app; never run the Windows installer.
 innoextract --silent --output-dir artifacts/unpacked \
-    --include 'app/skins/*' \
-    --include 'app/device/*' \
-    --include 'app/font/*' \
-    --include 'app/layouts/*' \
-    --include 'app/language/*' \
+    --include app/skins \
+    --include app/device \
+    --include app/font \
+    --include app/layouts \
+    --include app/language \
     "$archive"
+
+for required in \
+    app/skins/theme1/main_bkg.png \
+    app/skins/theme1/logo/logo.png \
+    app/skins/theme1/keyboard/img_keyboard_layout.png \
+    app/device/home_keyboard_connected.png \
+    app/font/OpenSans-Regular.ttf \
+    app/layouts/rgb-keyboard.xml \
+    app/language/2052.lan
+do
+    if [ ! -f "artifacts/unpacked/$required" ]; then
+        printf 'Required driver resource missing: %s\n' "$required" >&2
+        exit 1
+    fi
+done
 printf '%s\n' 'Verified driver resources are ready in artifacts/unpacked/app.'
