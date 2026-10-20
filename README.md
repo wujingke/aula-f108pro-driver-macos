@@ -21,7 +21,7 @@
 
 ```sh
 brew install innoextract
-git clone git@github.com:wujingke/aula-f108pro-driver-macos.git
+git clone ssh://git@github.com/wujingke/aula-f108pro-driver-macos.git
 cd aula-f108pro-driver-macos
 sh tools/fetch-driver-assets.sh
 sh tools/build-app.sh
