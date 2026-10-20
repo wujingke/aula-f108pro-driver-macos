@@ -1,0 +1,21 @@
+# Local build products and vendor resources
+/.build/
+/.swiftpm/
+/build/
+/dist/
+/artifacts/
+/analysis/
+/f108-time
+
+# Agent/editor caches and macOS metadata
+/.pi/
+/.ruff_cache/
+.DS_Store
+*.log
+
+# Local credentials and configuration
+.env
+.env.*
+.credentials/
+.github-token
+credentials.json
